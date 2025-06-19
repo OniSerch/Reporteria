@@ -1,0 +1,2 @@
+Aplicación de Reporteria usando Flask , vue.js estilo powerBI para analisis de grandes 
+volumnes de datos, asi como lectura de csv, excell o txt

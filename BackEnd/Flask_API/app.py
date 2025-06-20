@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_cors import CORS #import cors es para permitir el acceso desde otros dominios
-from flask_sqlalchemy import SQLAlchemy # admitir base de datos
+from pymongo import MongoClient # admitir base de datos
 from config import Config # importar la configuracion de la base de datos
 from models import db # importar la base de datos
 from route.auth import auth_bp # importar las rutas de autenticacion

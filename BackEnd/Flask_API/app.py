@@ -1,22 +1,16 @@
-from flask import Flask
-from flask_cors import CORS #import cors es para permitir el acceso desde otros dominios
-from pymongo import MongoClient # admitir base de datos
-from config import Config # importar la configuracion de la base de datos
-from models import db # importar la base de datos
-from route.auth import auth_bp # type: ignore # importar las rutas de autenticacion
+from flask import Flask, jsonify
+from flask_cors import CORS
+from models import obtener_usuarios
 
-#funcion para crear la aplicacion
-def create_app():
-    app=Flask(__name__) 
-    # Configurar la aplicacion
-    app.config.from_object(Config)
-    #EXTENSIONES
-    CORS(app)  # Permitir CORS
-    JWTManager(app)  # Manejo de los tokens
-    app.register_blueprint(auth_bp)  # Registrar las rutas de autenticacion
-    # Registrar las rutas de la aplicacion
-    return app
-    #Creamos las tablas de la base de datos
-if __name__ == '__main__':
-    app = create_app()
+app = Flask(__name__)
+CORS(app)
+
+@app.route("/usuarios", methods=["GET"])
+def listar_usuarios():
+    usuarios = obtener_usuarios()
+    for u in usuarios:
+        u["_id"] = str(u["_id"])
+    return jsonify(usuarios)
+
+if __name__ == "__main__":
     app.run(debug=True)

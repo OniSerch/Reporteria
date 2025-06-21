@@ -1,2 +1,12 @@
 Aplicación de Reporteria usando Flask , vue.js estilo powerBI para analisis de grandes 
 volumnes de datos, asi como lectura de csv, excell o txt
+----- Actualziaciones día 20/06------
+Se añade la BD de MongoDB
+Se modifica el Backend primero con el config 
+para buenas practicas se usara Seguridad Arrojado a la Obscuridad o ATO 
+usando Brainfuck y sha256....
+
+conexiones estan en el Envirement en el .env...
+
+Posibles mejoras: Primero Usar postamn para ver el XPPID mayor seguridad 
+Avance en el login se otrogara acceso a la BD al User Mael 

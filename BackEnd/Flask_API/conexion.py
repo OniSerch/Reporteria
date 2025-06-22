@@ -2,15 +2,16 @@ import os
 from dotenv import load_dotenv
 from pymongo import MongoClient
 
-# Cargar .env
+# Cargar .env archivo
 load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '..', '.env'))
 
-# Conectar a Mongo
+# Conectar a MongoDB
 MONGO_URI = os.getenv("MONGO_URI")
 print("MONGO_URI:", MONGO_URI)
-
+# Crear cliente de MongoDB
 client = MongoClient(MONGO_URI)
 db = client["Reporteria"]
+# Seleccionar la colección de usuarios
 usuarios_collection = db["Usuarios"]
 
 # Verificación (solo si corres este archivo directamente)

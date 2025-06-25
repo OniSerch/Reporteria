@@ -10,3 +10,9 @@ conexiones estan en el Envirement en el .env...
 
 Posibles mejoras: Primero Usar postamn para ver el XPPID mayor seguridad 
 Avance en el login se otrogara acceso a la BD al User Mael 
+
+
+--------------Actualizacion 24/06/2025--------------
+Se añadio nuevas carpetas y se re organizo el modelo, Ahora RUN.py es nuestro main, se agrego platillas html para el front
+Se van a añadir nuevas rutas del API en este caso auth, reportes que solo sera accesible tras un registro..
+ACTUALIZACION FUTURA ENCRIPTACION DE PASSWORD 

@@ -6,7 +6,7 @@ from Flask_API.utils.brainfuck import to_brainfuck
 
 auth_bp = Blueprint('auth', __name__)
 
-@auth_bp.route('/registro', methods=['POST'])
+@auth_bp.route('/registro', methods=['GET', 'POST'])
 def registro():
     data = request.get_json()
     if usuarios_collection.find_one({"email": data['email']}):
@@ -18,14 +18,14 @@ def registro():
     brainfuck_hash = to_brainfuck(hashed)
    
     usuarios_collection.insert_one({
-        "Usuario": data['usuario'],
-        "PassHash": brainfuck_hash,
-        "Correo": data['email'],
-        "Rol": rol,
-        "Plan":{},
-        "Logueo":None,
-        "Activo": True,
-        "Pago": pago_estado,
+        "usuario": data['usuario'],
+        "pass_hash": brainfuck_hash,
+        "email": data.get("email"),
+        "rol": rol,
+        "plan":{},
+        "logueo":None,  
+        "activo": True,
+        "pago": pago_estado,
     })
     brainfuck_hash = to_brainfuck(hashed)
     return jsonify({
@@ -35,16 +35,16 @@ def registro():
     }), 201
 
 
-@auth_bp.route('/login', methods=['POST'])
+@auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
     data = request.get_json()
-    usuario = usuarios_collection.find_one({"Correo": data['email']})
+    usuario = usuarios_collection.find_one({"email": data['email']})
     if not usuario:
         return jsonify({"Mensaje": "Usuario no encontrado"}), 404
-    if not verificar(data['password'], usuario['PassHash']):
+    if not verificar(data['password'], usuario['pass_hash']):
         return jsonify({"Mensaje": "Contraseña incorrecta"}), 401
     return jsonify({
         "Mensaje": "Inicio de sesión exitoso",
-        "Usuario": usuario['Usuario'],
+        "Usuario": usuario['usuario '],
         "Rol": usuario['Rol']
     }), 200

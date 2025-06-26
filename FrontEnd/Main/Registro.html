@@ -1,14 +1,14 @@
-<!-- FrontEnd/Main/login.html -->
 <!DOCTYPE html>
 <html>
-<head><title>Login</title></head>
+<head>
+    <title>Login</title>
+</head>
 <body>
     <h2>Login</h2>
     <form id="registerForm">
-        
         Usuario: <input type="text" name="usuario"><br>
         Password: <input type="password" name="password"><br>
-        Correo: <input type="text" name="correo"><br>
+        Email: <input type="text" name="email"><br> <!-- CAMBIADO de "correo" a "email" -->
         <button type="submit">Iniciar sesión</button>
     </form>
 
@@ -17,12 +17,12 @@
         e.preventDefault();
         const formData = new FormData(e.target);
         const body = JSON.stringify({
-            correo: formData.get("correo"),
+            email: formData.get("email"),          // CAMBIADO de "correo" a "email"
             password: formData.get("password"),
-            usuario: formData.get("usuario")    
+            usuario: formData.get("usuario")
         });
 
-        const response = await fetch("/auth/login", {
+        const response = await fetch("/registro", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body

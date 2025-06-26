@@ -1,0 +1,36 @@
+<!-- FrontEnd/Main/login.html -->
+<!DOCTYPE html>
+<html>
+<head><title>Login</title></head>
+<body>
+    <h2>Login</h2>
+    <form id="registerForm">
+        
+        Usuario: <input type="text" name="usuario"><br>
+        Password: <input type="password" name="password"><br>
+        Correo: <input type="text" name="correo"><br>
+        <button type="submit">Iniciar sesión</button>
+    </form>
+
+    <script>
+    document.getElementById("registerForm").onsubmit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const body = JSON.stringify({
+            correo: formData.get("correo"),
+            password: formData.get("password"),
+            usuario: formData.get("usuario")    
+        });
+
+        const response = await fetch("/auth/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body
+        });
+
+        const result = await response.json();
+        alert(result.mensaje);
+    };
+    </script>
+</body>
+</html>

@@ -16,3 +16,8 @@ Avance en el login se otrogara acceso a la BD al User Mael
 Se añadio nuevas carpetas y se re organizo el modelo, Ahora RUN.py es nuestro main, se agrego platillas html para el front
 Se van a añadir nuevas rutas del API en este caso auth, reportes que solo sera accesible tras un registro..
 ACTUALIZACION FUTURA ENCRIPTACION DE PASSWORD 
+
+
+
+fecha inicio y fin es depende del nombre el nombre del plan es mensual , anual o gratis si es mensual o anual son
+las fechas de pago 

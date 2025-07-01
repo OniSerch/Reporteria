@@ -19,5 +19,27 @@ ACTUALIZACION FUTURA ENCRIPTACION DE PASSWORD
 
 
 
+
+--------actualizacion masiva 30/06/2025----------------
+
+
 fecha inicio y fin es depende del nombre el nombre del plan es mensual , anual o gratis si es mensual o anual son
 las fechas de pago 
+
+
+se a{adio el de pruebas .py para las conexiones}
+
+se añadio mas campos a la bd ya que se ocupa el plan si es gratis mensual o anual
+ asi como las fechas de inicio y fin segun el plan
+
+se a{adio a la bd mas normas de negocio para seguriad}
+se probo la encriptacion  me lo dio de forma satisfactoria de brainfuck a hash mas salt
+
+falta agregar tokens xppid para mayor seguirdad en el back y mas logica para usuarios no sql
+
+se agrego un poco de front para los formularios
+ futura actualizaciones el api para pagos ya se tiene un usuario premium para la reporteria 
+
+falta las cokkies para contraseñas perdidas etc etc 
+
+----------------

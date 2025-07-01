@@ -4,6 +4,11 @@ from ..conexion import usuarios_collection
 from Flask_API.utils.hash import hash, verificar
 from Flask_API.utils.hash import hash
 from Flask_API.utils.brainfuck import to_brainfuck
+from datetime import datetime, timedelta
+
+
+
+
 
 auth_bp = Blueprint('auth', __name__)
 @auth_bp.route('/registro', methods=['POST'])
